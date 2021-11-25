@@ -122,7 +122,7 @@ curl -X GET "https://api.patriotexchange.net/v2/constants"
             "increment_unit": 0.1,
             "created_at": "2019-08-09T10:45:43.367Z",
             "updated_at": "2021-04-20T03:02:48.635Z",
-            "logo": "https://bitholla.s3.ap-northeast-2.amazonaws.com/exchange/icons/usdt.",
+            "logo": "https://.s3.ap-northeast-2.amazonaws.com/exchange/icons/usdt.",
             "code": "usdt",
             "is_public": true,
             "meta": {},
@@ -189,14 +189,14 @@ curl -X GET "https://api.patriotexchange.net/v2/tiers"
         "withdrawal_limit": 0,
         "fees": {
             "maker": {
-                "xht-usdt": 0.2,
+                "patx-eth": 0.2,
                 "xmr-usdt": 0.2,
                 "eth-usdt": 0.2,
                 "btc-usdt": 0.2,
                 "eth-btc": 0.2
             },
             "taker": {
-                "xht-usdt": 0.2,
+                "patx-eth": 0.2,
                 "xmr-usdt": 0.2,
                 "eth-usdt": 0.2,
                 "btc-usdt": 0.2,
@@ -216,14 +216,14 @@ curl -X GET "https://api.patriotexchange.net/v2/tiers"
         "withdrawal_limit": 0,
         "fees": {
             "maker": {
-                "xht-usdt": 0,
+                "patx-eth": 0,
                 "xmr-usdt": 0,
                 "eth-usdt": 0,
                 "btc-usdt": 0,
                 "eth-btc": 0
             },
             "taker": {
-                "xht-usdt": 0,
+                "patx-eth": 0,
                 "xmr-usdt": 0,
                 "eth-usdt": 0,
                 "btc-usdt": 0,
@@ -275,7 +275,7 @@ This endpoint retrieves ticker information for a pair.
 
 Parameter | Type | Required/Optional | Description
 --------- | ------- | ------- | -------
-symbol | string | Required | The currency pair symbol (xht-usdt)
+symbol | string | Required | The currency pair symbol (patx-eth)
 
 ## Tickers
 
@@ -354,7 +354,7 @@ This endpoint retrieves 10 level bids and 10 level asks of the orderbook for a s
 
 Parameter | Type | Required/Optional | Description
 --------- | ------- | ------- | -------
-symbol | string | Required | The currency pair symbol (xht-usdt, etc.)
+symbol | string | Required | The currency pair symbol (patx-eth, etc.)
 
 ## Orderbooks
 
@@ -393,31 +393,31 @@ This endpoint retrieves 10 level bids and 10 level asks of the orderbook for all
 > Request
 
 ```shell
-curl -X GET "https://api.patriotexchange.net/v2/trades?symbol=xht-usdt"
+curl -X GET "https://api.patriotexchange.net/v2/trades?symbol=patx-eth"
 ```
 
 > Response
 
 ```json
 {
-    "xht-usdt": [
+    "patx-eth": [
         {
             "size": 10,
             "price": 0.2,
             "side": "buy",
-            "timestamp": "2018-03-23T04:00:20.744Z"
+            "timestamp": "2021-11-23T04:00:20.744Z"
         },
         {
             "size": 5,
             "price": 0.21,
             "side": "buy",
-            "timestamp": "2018-03-23T03:32:38.927Z"
+            "timestamp": "2021-11-23T03:32:38.927Z"
         },
         {
             "size": 5,
             "price": 0.23,
             "side": "sell",
-            "timestamp": "2018-03-23T03:13:42.361Z"
+            "timestamp": "2021-11-23T03:13:42.361Z"
         }
     ],
     ...
@@ -434,14 +434,14 @@ This endpoint retrieves the last 30 trades.
 
 Parameter | Type | Required/Optional | Description
 --------- | ------- | ------- | -------
-symbol | string | Optional | The currency pair symbol (xht-usdt, etc.)
+symbol | string | Optional | The currency pair symbol (patx-eth, etc.)
 
 ## Chart
 
 > Request
 
 ```shell
-curl -X GET "https://api.patriotexchange.net/v2/chart?symbol=xht-usdt&resolution=1D&from=1616987453&to=1619579513"
+curl -X GET "https://api.patriotexchange.net/v2/chart?symbol=patx-eth&resolution=1D&from=1616987453&to=1619579513"
 ```
 
 > Response
@@ -454,7 +454,7 @@ curl -X GET "https://api.patriotexchange.net/v2/chart?symbol=xht-usdt&resolution
         "high": 0.21,
         "low": 0.25,
         "open": 0.21,
-        "symbol": "xht-usdt",
+        "symbol": "patx-eth",
         "volume": 204.2
     },
     {
@@ -463,7 +463,7 @@ curl -X GET "https://api.patriotexchange.net/v2/chart?symbol=xht-usdt&resolution
         "high": 0.25,
         "low": 0.25,
         "open": 0.25,
-        "symbol": "xht-usdt",
+        "symbol": "patx-eth",
         "volume": 437.8
     },
 	...
@@ -497,14 +497,14 @@ curl -X GET "https://api.patriotexchange.net/v2/charts?resolution=1D&from=155166
 
 ```json
 {
-    "xht-usdt": [
+    "patx-eth": [
         {
 			"time": "2020-01-01T00:00:00.000Z",
 			"close": 0.2,
 			"high": 0.23,
 			"low": 0.2,
 			"open": 0.23,
-			"symbol": "xht-usdt",
+			"symbol": "patx-eth",
 			"volume": 13538
 		},
 		{
@@ -513,7 +513,7 @@ curl -X GET "https://api.patriotexchange.net/v2/charts?resolution=1D&from=155166
 			"high": 0.2,
 			"low": 0.2,
 			"open": 0.2,
-			"symbol": "xht-usdt",
+			"symbol": "patx-eth",
 			"volume": 54
 		},
 		{
@@ -522,7 +522,7 @@ curl -X GET "https://api.patriotexchange.net/v2/charts?resolution=1D&from=155166
 			"high": 0.201,
 			"low": 0.2,
 			"open": 0.2,
-			"symbol": "xht-usdt",
+			"symbol": "patx-eth",
 			"volume": 25982
 		},
 		...
@@ -633,15 +633,15 @@ curl -X GET
     "balance": {
         "usdt_balance": 0,
         "usdt_available": 0,
-        "xht_balance": 0,
-        "xht_available": 0,
+        "patx_balance": 0,
+        "patx_available": 0,
 		...,
         "updated_at": "2021-02-16T05:48:28.014Z"
     },
     "wallet": [
         {
-            "currency": "xht",
-            "address": "0xb9b424250b1d5025f69d5c099b7a90f0a0a9c275",
+            "currency": "patx",
+            "address": "0x000000000000000000000000000000000000000",
             "network": "eth",
             "standard": null,
             "is_valid": true,
@@ -649,7 +649,7 @@ curl -X GET
         },
         {
             "currency": "usdt",
-            "address": "0xb9b424250b1d5025f69d5c099b7a90f0a0a9c275",
+            "address": "0x0000000000000000000000000000000000000000",
             "network": "eth",
             "standard": null,
             "is_valid": true,
@@ -682,12 +682,12 @@ curl -X GET
 
 ```json
 {
-	"xht_balance": 0,
-	"xht_available": 0,
+	"patx_balance": 0,
+	"patx_available": 0,
 	"usdt_balance": 0,
 	"usdt_available": 0,
 	...
-	"updated_at": "2018-03-23T04:14:08.705Z"
+	"updated_at": "2021-11-23T04:14:08.705Z"
 }
 ```
 
@@ -816,7 +816,7 @@ This endpoint displays user's withdrawals
 
 Parameter | Type | Required/Optional | Description
 --------- | ------- | ------- | -------
-currency | string | Optional | The currency pair symbol (xht-usdt)
+currency | string | Optional | The currency pair symbol (patx-eth)
 limit | number | Optional | Number of elements to return. Default: 50. Maximun: 100
 page | number | Optional | Page of data to retrieve
 order_by | string | Optional | Field to order data
@@ -862,7 +862,7 @@ This endpoint gets the withdrawal fee for a certain currency
 
 Parameter | Type | Required/Optional | Description
 --------- | ------- | ------- | -------
-currency | string | Required | The desired currency e.g. xht
+currency | string | Required | The desired currency e.g. patx
 
 ## Create Withdrawal Request
 
@@ -896,7 +896,7 @@ This endpoint creates a withdrawal request for the user
 
 Parameter | Type | Required/Optional | Description
 --------- | ------- | ------- | -------
-currency | string | Required | The desired currency e.g. xht
+currency | string | Required | The desired currency e.g. patx
 amount | number | Required | The amount to withdrawal e.g. 5
 address | string | Required | The recipient wallet's address
 network | string | Optional | Network of currency being withdrawn if there are multiple networks for currency
@@ -922,7 +922,7 @@ curl -X GET
 	"data": [
 		{
             "side": "sell",
-            "symbol": "xht-usdt",
+            "symbol": "patx-eth",
             "size": 0.1,
             "price": 0.15,
             "timestamp": "2021-02-15T07:34:34.203Z",
@@ -974,7 +974,7 @@ curl -X GET
         {
             "id": "string",
             "side": "sell",
-            "symbol": "xht-usdt",
+            "symbol": "patx-eth",
             "size": 0.1,
             "filled": 0,
             "stop": null,
@@ -1036,7 +1036,7 @@ curl -X GET
 {
 	"id": "string",
 	"side": "sell",
-	"symbol": "xht-usdt",
+	"symbol": "patx-eth",
 	"size": 0.1,
 	"filled": 0,
 	"stop": null,
@@ -1083,7 +1083,7 @@ curl -X POST
 {
     "fee": 0,
     "meta": {},
-    "symbol": "xht-usdt",
+    "symbol": "patx-eth",
     "side": "sell",
     "size": 0.1,
     "type": "limit",
@@ -1113,7 +1113,7 @@ This endpoint places an order for the user
 
 Parameter | Type | Required/Optional | Description
 --------- | ------- | ------- | -------
-symbol | string | Required | The currency pair symbol (xht-usdt)
+symbol | string | Required | The currency pair symbol (patx-eth)
 side | string | Required | buy or sell order
 size | number | Required | The amount of the order
 type | string | Required | limit or market order type
@@ -1148,7 +1148,7 @@ curl -X DELETE
         "price": 1,
         "created_at": "2021-02-17T03:04:59.607Z",
         "updated_at": "2021-02-17T03:05:02.945Z",
-        "symbol": "xht-usdt",
+        "symbol": "patx-eth",
         "filled": 0,
         "stop": null,
         "status": "canceled",
@@ -1200,12 +1200,12 @@ curl -X GET
     "price": 1,
     "created_at": "2021-02-17T03:07:36.244Z",
     "updated_at": "2021-02-17T03:07:52.683Z",
-    "symbol": "xht-usdt",
+    "symbol": "patx-eth",
     "filled": 0,
     "stop": null,
     "status": "canceled",
     "fee": 0,
-    "fee_coin": "xht",
+    "fee_coin": "patx",
     "meta": {},
     "id": "string",
     "fee_structure": {
@@ -1264,7 +1264,7 @@ This endpoint retrieves the TradingView UDF config.
 > Request
 
 ```shell
-curl -X GET "https://api.patriotexchange.net/v2/udf/history?symbol=xht-usdt&resolution=1D&from=1551663947&to=1582768007"
+curl -X GET "https://api.patriotexchange.net/v2/udf/history?symbol=patx-eth&resolution=1D&from=1551663947&to=1582768007"
 ```
 
 > Response
@@ -1289,7 +1289,7 @@ This endpoint retrieves the TradigView UDF history HOLCV.
 
 Parameter | Type | Required/Optional | Description
 --------- | ------- | ------- | -------
-symbol | string | Required | The currency pair symbol (xht-usdt, etc.)
+symbol | string | Required | The currency pair symbol (patx-eth, etc.)
 resolution | string | Required | Time interval resolution (1D, 60, etc.)
 from | string | Required | Beginning UNIX timestamp
 to | string | Required | Ending UNIX timestamp
@@ -1299,15 +1299,15 @@ to | string | Required | Ending UNIX timestamp
 > Request
 
 ```shell
-curl -X GET "https://api.patriotexchange.net/v2/udf/symbols?symbol=xht-usdt"
+curl -X GET "https://api.patriotexchange.net/v2/udf/symbols?symbol=patx-eth"
 ```
 
 > Response
 
 ```json
 {
-    "name": "bitHolla",
-    "ticker": "xht-usdt",
+    "name": "Patriot Exchange",
+    "ticker": "patx-eth",
     "exchange": "Patriot Exchange",
     "has_intraday": true,
     "has_daily": true,
@@ -1329,7 +1329,7 @@ This endpoint retrieves system a TradingView UDF symbol.
 
 Parameter | Type | Required/Optional | Description
 --------- | ------- | ------- | -------
-symbol | string | Required | The currency pair symbol (xht-usdt, etc.)
+symbol | string | Required | The currency pair symbol (patx-eth, etc.)
 
 # Websocket
 
@@ -1458,8 +1458,8 @@ The public events you can subscribe to are:
 
 Event | Description
 --------- | -----------
-orderbook | Notification with orderbook symbol and data update. To subscribe to a specific pair, you can pass the pair after a colon. Ex: `orderbook:xht-usdt`.
-trades | Notification with trade data. To subscribe to a specific pair, you can pass the pair after a colon. Ex: `trades:xht-usdt`.
+orderbook | Notification with orderbook symbol and data update. To subscribe to a specific pair, you can pass the pair after a colon. Ex: `orderbook:patx-eth`.
+trades | Notification with trade data. To subscribe to a specific pair, you can pass the pair after a colon. Ex: `trades:patx-eth`.
 
 ## Public Updates
 
@@ -1470,7 +1470,7 @@ trades | Notification with trade data. To subscribe to a specific pair, you can 
 {
 	"topic": "orderbook",
 	"action": "partial",
-	"symbol": "xht-usdt",
+	"symbol": "patx-eth",
 	"data": {
 		"bids": [
 			[0.1, 0.1],
@@ -1494,7 +1494,7 @@ trades | Notification with trade data. To subscribe to a specific pair, you can 
 {
 	"topic": "trade",
 	"action": "partial",
-	"symbol": "xht-usdt",
+	"symbol": "patx-eth",
 	"data": [
 		{
 			"size": 0.012,
@@ -1564,7 +1564,7 @@ wallet | Notifications for balance updates.
 		{
 			"id": "7d3d9545-b7e6-4e7f-84a0-a39efa4cb173",
 			"side": "buy",
-			"symbol": "xht-usdt",
+			"symbol": "patx-eth",
 			"type": "limit",
 			"size": 0.1,
 			"filled": 0,
@@ -1572,7 +1572,7 @@ wallet | Notifications for balance updates.
 			"stop": null,
 			"status": "new",
 			"fee": 0,
-			"fee_coin": "xht",
+			"fee_coin": "patx",
 			"meta": {},
 			"fee_structure": {
 				"maker": 0.1,
@@ -1590,12 +1590,12 @@ wallet | Notifications for balance updates.
 	"topic": "order",
 	"action": "insert",
 	"user_id": 1,
-	"symbol": "xht-usdt",
+	"symbol": "patx-eth",
 	"data": [
 		{
 			"id": "7d3d9545-b7e6-4e7f-84a0-a39efa4cb173",
 			"side": "buy",
-			"symbol": "xht-usdt",
+			"symbol": "patx-eth",
 			"type": "limit",
 			"size": 0.1,
 			"filled": 0,
@@ -1603,7 +1603,7 @@ wallet | Notifications for balance updates.
 			"stop": null,
 			"status": "new",
 			"fee": 0,
-			"fee_coin": "xht",
+			"fee_coin": "patx",
 			"meta": {},
 			"fee_structure": {
 				"maker": 0.1,
@@ -1622,12 +1622,12 @@ wallet | Notifications for balance updates.
 	"topic": "order",
 	"action": "insert",
 	"user_id": 1,
-	"symbol": "xht-usdt",
+	"symbol": "patx-eth",
 	"data": [
 		{
 			"id": "7d3d9545-b7e6-4e7f-84a0-a39efa4cb173",
 			"side": "buy",
-			"symbol": "xht-usdt",
+			"symbol": "patx-eth",
 			"type": "limit",
 			"size": 0.1,
 			"filled": 0,
@@ -1635,7 +1635,7 @@ wallet | Notifications for balance updates.
 			"stop": null,
 			"status": "new",
 			"fee": 0,
-			"fee_coin": "xht",
+			"fee_coin": "patx",
 			"meta": {},
 			"fee_structure": {
 				"maker": 0.1,
@@ -1675,8 +1675,8 @@ update | When user's order status is updated. Status can be pfilled, filled, and
 	"data": {
 		"usdt_balance": 1,
 		"usdt_available": 1,
-		"xht_balance": 1,
-		"xht_available": 1,
+		"patx_balance": 1,
+		"patx_available": 1,
 		"xmr_balance": 1,
 		"xmr_available": 1,
 		"btc_balance": 1,
