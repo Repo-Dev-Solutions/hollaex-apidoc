@@ -5,7 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - shell
 
 toc_footers:
-  - <a href='https://hollaex.com/account/developers'>Sign Up for a Developer Key</a>
+  - <a href='https://trade.patriotexchange.net/account/developers'>Sign Up for a Developer Key</a>
 
 includes:
   - errors
@@ -17,7 +17,7 @@ search: true
 
 > All shell commands are CURL. You can read more about CURL [here](https://curl.haxx.se/).
 
-HollaEx provides a complete RESTful API for developers which allows full access to all the functionalities on the exchange. HollaEx also support websocket for real-time updates.
+Patriot Exchange provides a complete RESTful API for developers which allows full access to all the functionalities on the exchange. Patriot Exchange also support websocket for real-time updates.
 
 These endpoints are categorized into public and private. Public endpoints allow you to access public information such as price ticker, orderbook etc while private endpoints require authentication and allow you to get your balance, active orders as well as placing orders.
 
@@ -38,19 +38,19 @@ curl -X POST
 
 > Make sure to replace `$API_KEY`, `$API_SIGNATURE`, and `$API_EXPIRES` with your own key, signature, and expires values.
 
-HollaEx uses HMAC-SHA256 authentication for private user access to the API. HMAC-SHA256 takes a string and secret key (your `api-secret`) and outputs an encoded signature (your `api-signature`). The string being encoded should follow the format `${METHOD}${PATH}${api-expires}`, where `METHOD` is the HTTP method of the request, `PATH` is the path of the request, and `api-expires` is a unix timestamp indicating when the request expires. If the request includes a body, the JSON body object should be appended to the string being encoded e.g. `${METHOD}${PATH}${api-expires}${JSON_BODY}`. You can use an online [HMAC generator](https://www.freeformatter.com/hmac-generator.html) to generate the signature.
+Patriot Exchange uses HMAC-SHA256 authentication for private user access to the API. HMAC-SHA256 takes a string and secret key (your `api-secret`) and outputs an encoded signature (your `api-signature`). The string being encoded should follow the format `${METHOD}${PATH}${api-expires}`, where `METHOD` is the HTTP method of the request, `PATH` is the path of the request, and `api-expires` is a unix timestamp indicating when the request expires. If the request includes a body, the JSON body object should be appended to the string being encoded e.g. `${METHOD}${PATH}${api-expires}${JSON_BODY}`. You can use an online [HMAC generator](https://www.freeformatter.com/hmac-generator.html) to generate the signature.
 
 
 Examples of strings being encoded:
 
-- `GET` request to `https://api.hollaex.com/v2/user/balance` that expires at `1575516146`
+- `GET` request to `https://api.patriotexchange.net/v2/user/balance` that expires at `1575516146`
   - `GET/v2/user/balance1575516146`
-- `POST` request to `https://api.hollaex.com/v2/order` that expires at `1575516146` with body `{"symbol":"btc-usdt","side":"buy","size":0.001,"type":"market"}`
+- `POST` request to `https://api.patriotexchange.net/v2/order` that expires at `1575516146` with body `{"symbol":"btc-usdt","side":"buy","size":0.001,"type":"market"}`
   - `POST/v2/order1583284849{"symbol":"btc-usdt","side":"buy","size":0.001,"type":"market"}`
 
-You can register for a new HollaEx `api-key` and `api-secret` in the [security section](https://pro.hollaex.com/security) of hollaex.com.
+You can register for a new Patriot Exchange `api-key` and `api-secret` in the [security section](https://trade.patriotexchange.net/) of trade.patriotexchange.net.
 
-HollaEx expects `api-key`, `api-signature`, and `api-expires` to be included in all Private API requests to the server in the request header with the following format:
+Patriot Exchange expects `api-key`, `api-signature`, and `api-expires` to be included in all Private API requests to the server in the request header with the following format:
 
 ```
 api-key: <API_KEY>
@@ -64,9 +64,9 @@ You must replace <code>API_KEY</code>, <code>API_SIGNATURE</code>, and <code>API
 
 # API Client Libraries
 
-Client libraries make it simple to utilize our API. Currently, there are two libraries for HollaEx that support three languages:
+Client libraries make it simple to utilize our API. Currently, there are two libraries for Patriot Exchange that support three languages:
 
-- [HollaEx Node Library](https://github.com/bitholla/hollaex-node-lib) - Our official library that supports Node.js. Connects to both our API and websocket.
+- [Patriot Exchange Node Library](https://PatriotExchange-node-lib) - COMING SOON - Our official library that supports Node.js. Connects to both our API and websocket.
 - [CCXT](https://ccxt.trade) - An authorized library that supports Node.js, PHP, and Python. Connects to our API.
 
 # Public
@@ -76,16 +76,16 @@ Client libraries make it simple to utilize our API. Currently, there are two lib
 > Request
 
 ```shell
-curl -X GET "https://api.hollaex.com/v2/health"
+curl -X GET "https://api.patriotexchange.net/v2/health"
 ```
 
 > Response
 
 ```json
 {
-    "name": "HollaEx",
-    "version": "2.1.0",
-    "host": "https://api.hollaex.com",
+    "name": "Patriot Exchange",
+    "version": "2.2.3",
+    "host": "https://api.patriotexchange.net",
     "basePath": "/v2"
 }
 ```
@@ -93,14 +93,14 @@ This endpoint retrieves the exchange's basic information and checks its health.
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/health`
+`GET https://api.patriotexchange.net/v2/health`
 
 ## Constants
 
 > Request
 
 ```shell
-curl -X GET "https://api.hollaex.com/v2/constants"
+curl -X GET "https://api.patriotexchange.net/v2/constants"
 ```
 
 > Response
@@ -108,36 +108,6 @@ curl -X GET "https://api.hollaex.com/v2/constants"
 ```json
 {
     "coins": {
-        "xht": {
-            "id": 1,
-            "fullname": "HollaEx Token",
-            "symbol": "xht",
-            "active": true,
-            "verified": true,
-            "allow_deposit": true,
-            "allow_withdrawal": true,
-            "withdrawal_fee": 20,
-            "min": 1,
-            "max": 1000000,
-            "increment_unit": 1,
-            "created_at": "2019-08-09T10:45:43.367Z",
-            "updated_at": "2019-10-31T05:08:18.907Z",
-            "logo": "https://bitholla.s3.ap-northeast-2.amazonaws.com/icon/XHT-hollaex-asset-01.svg",
-            "code": "xht",
-            "is_public": true,
-            "meta": {},
-            "estimated_price": null,
-            "description": null,
-            "type": "blockchain",
-            "network": "eth",
-            "standard": "erc-20",
-            "issuer": "HollaEx",
-            "withdrawal_fees": {
-                "eth": 20,
-                "trx": 1
-            },
-            "created_by": 1
-        },
         "usdt": {
             "id": 6,
             "fullname": "USD Tether",
@@ -161,18 +131,18 @@ curl -X GET "https://api.hollaex.com/v2/constants"
             "type": "blockchain",
             "network": "eth,trx",
             "standard": "erc-20",
-            "issuer": "HollaEx",
+            "issuer": "Patriot Exchange",
             "withdrawal_fees": null,
             "created_by": 1
         },
 		...
     },
     "pairs": {
-        "xht-usdt": {
+        "patx-eth": {
             "id": 1,
-            "name": "xht-usdt",
-            "pair_base": "xht",
-            "pair_2": "usdt",
+            "name": "patx-eth",
+            "pair_base": "patx",
+            "pair_2": "eth",
             "min_size": 0.1,
             "max_size": 10000000,
             "min_price": 0.01,
@@ -181,11 +151,11 @@ curl -X GET "https://api.hollaex.com/v2/constants"
             "increment_price": 0.0001,
             "active": true,
             "verified": true,
-            "code": "xht-usdt",
+            "code": "patx-eth",
             "is_public": true,
             "estimated_price": 0.1,
-            "created_at": "2019-08-09T10:45:43.353Z",
-            "updated_at": "2019-08-09T10:45:43.353Z",
+            "created_at": "2021-10-09T10:45:43.353Z",
+            "updated_at": "2021-10-09T10:45:43.353Z",
             "created_by": 1
         },
         ...
@@ -196,76 +166,14 @@ This endpoint retrieves system information for coins and pairs.
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/constants`
 
-## Kit
-
-> Request
-
-```shell
-curl -X GET "https://api.hollaex.com/v2/kit"
-```
-
-> Response
-
-```json
-{
-    "meta": {...},
-    "color": {...},
-    "icons": {...},
-    "links": {...},
-    "title": "HollaEx",
-    "captcha": {
-        "site_key": ""
-    },
-    "strings": {...},
-    "api_name": "HollaEx",
-    "defaults": {
-        "theme": "dark",
-        "language": "en"
-    },
-    "features": {...},
-    "interface": {
-        "type": "full"
-    },
-    "user_meta": {...},
-    "logo_image": "https://bitholla-sandbox.s3.ap-northeast-2.amazonaws.com/exchange/Sandbox_HollaEx/EXCHANGE_LOGO__dark.png",
-    "description": "HollaEx is a global cryptocurrency exchange for professional trading built based on HollaEx Kit technology developed and managed by bitHolla. Not only it is open for trading but it also allows businesses and individuals to branch out and create their own exchange based on it in the HollaEx Network. HollaEx Token (XHT) is the native token of HollaEx Network used as a collateral among exchanges.",
-    "injected_html": {...},
-    "injected_values": [...],
-    "native_currency": "usdt",
-    "setup_completed": true,
-    "valid_languages": "en,fa,ko,ar,pt,ja,ru",
-    "new_user_is_activated": true,
-	"email_verification_required": true,
-    "info": {
-        "name": "HollaEx",
-        "active": true,
-        "url": "https://api.hollaex.com",
-        "is_trial": false,
-        "created_at": "2020-10-05T06:46:27.272Z",
-        "expiry": "2021-02-04T06:46:27.000Z",
-        "collateral_level": "member",
-        "type": "Cloud",
-        "plan": "crypto",
-        "period": "year",
-        "status": true,
-        "initialized": true
-    }
-}
-```
-This endpoint retrieves system kit configurations for the client.
-
-### HTTP Request
-
-`GET https://api.hollaex.com/v2/kit`
 
 ## Tiers
 
 > Request
 
 ```shell
-curl -X GET "https://api.hollaex.com/v2/tiers"
+curl -X GET "https://api.patriotexchange.net/v2/tiers"
 ```
 
 > Response
@@ -296,8 +204,8 @@ curl -X GET "https://api.hollaex.com/v2/tiers"
             }
         },
         "note": "",
-        "created_at": "2020-10-28T02:00:57.128Z",
-        "updated_at": "2021-01-13T15:42:30.615Z"
+        "created_at": "2021-10-28T02:00:57.128Z",
+        "updated_at": "2021-11-13T15:42:30.615Z"
     },
     "2": {
         "id": 2,
@@ -323,8 +231,8 @@ curl -X GET "https://api.hollaex.com/v2/tiers"
             }
         },
         "note": "",
-        "created_at": "2020-10-28T02:01:12.299Z",
-        "updated_at": "2021-01-07T08:21:15.300Z"
+        "created_at": "2021-10-28T02:01:12.299Z",
+        "updated_at": "2021-11-07T08:21:15.300Z"
     },
 	...
 }
@@ -333,14 +241,14 @@ This endpoint retrieves system tier levels for users.
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/tiers`
+`GET https://api.patriotexchange.net/v2/tiers`
 
 ## Ticker
 
 > Request
 
 ```shell
-curl -X GET "https://api.hollaex.com/v2/ticker?symbol=xht-usdt"
+curl -X GET "https://api.patriotexchange.net/v2/ticker?symbol=patx-eth"
 ```
 
 > Response
@@ -353,7 +261,7 @@ curl -X GET "https://api.hollaex.com/v2/ticker?symbol=xht-usdt"
     "low": 0.54,
     "last": 0.54,
     "volume": 18653.3,
-    "timestamp": "2021-04-28T03:05:24.996Z"
+    "timestamp": "2021-11-28T03:05:24.996Z"
 }
 ```
 
@@ -361,7 +269,7 @@ This endpoint retrieves ticker information for a pair.
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/ticker?symbol=${symbol}`
+`GET https://api.patriotexchange.net/v2/ticker?symbol=${symbol}`
 
 ### PARAMETERS
 
@@ -374,22 +282,22 @@ symbol | string | Required | The currency pair symbol (xht-usdt)
 > Request
 
 ```shell
-curl -X GET "https://api.hollaex.com/v2/tickers"
+curl -X GET "https://api.patriotexchange.net/v2/tickers"
 ```
 
 > Response
 
 ```json
 {
-    "xht-usdt": {
-        "time": "2021-04-27T03:05:41.012Z",
+    "patx-eth": {
+        "time": "2021-11-27T03:05:41.012Z",
         "open": 0.54,
         "close": 0.54,
         "high": 0.54,
         "low": 0.54,
         "last": 0.54,
         "volume": 18653.3,
-        "symbol": "xht-usdt"
+        "symbol": "patx-eth"
     },
     ...
 }
@@ -399,21 +307,21 @@ This endpoint retrieves ticker information for all pairs.
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/tickers`
+`GET https://api.patriotexchange.net/v2/tickers`
 
 ## Orderbook
 
 > Request
 
 ```shell
-curl -X GET "https://api.hollaex.com/v2/orderbook?symbol=xht-usdt"
+curl -X GET "https://api.patriotexchange.net/v2/orderbook?symbol=patx-eth"
 ```
 
 > Response
 
 ```json
 {
-	"xht-usdt": {
+	"patx-eth": {
 		"bids": [
 			[0.212,8],
 			[0.21,5],
@@ -431,7 +339,7 @@ curl -X GET "https://api.hollaex.com/v2/orderbook?symbol=xht-usdt"
 			[0.24,824],
 			[0.248,10]
 		],
-		"timestamp": "2018-03-02T21:36:29.395Z"
+		"timestamp": "2021-11-02T21:36:29.395Z"
 	}
 }
 ```
@@ -440,7 +348,7 @@ This endpoint retrieves 10 level bids and 10 level asks of the orderbook for a s
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/orderbook?symbol=${symbol}`
+`GET https://api.patriotexchange.net/v2/orderbook?symbol=${symbol}`
 
 ### PARAMETERS
 
@@ -453,22 +361,22 @@ symbol | string | Required | The currency pair symbol (xht-usdt, etc.)
 > Request
 
 ```shell
-curl -X GET "https://api.hollaex.com/v2/orderbooks"
+curl -X GET "https://api.patriotexchange.net/v2/orderbooks"
 ```
 
 > Response
 
 ```json
 {
-	"xht-usdt": {
+	"patx-eth": {
 		"bids": [...],
 		"asks": [...],
-		"timestamp": "2018-03-02T21:36:29.395Z"
+		"timestamp": "2021-11-02T21:36:29.395Z"
 	},
 	"btc-usdt": {
 		"bids": [...],
 		"asks": [...],
-		"timestamp": "2018-03-02T21:36:29.395Z"
+		"timestamp": "2021-11-02T21:36:29.395Z"
 	},
 	...
 }
@@ -478,14 +386,14 @@ This endpoint retrieves 10 level bids and 10 level asks of the orderbook for all
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/orderbooks`
+`GET https://api.patriotexchange.net/v2/orderbooks`
 
 ## Trades
 
 > Request
 
 ```shell
-curl -X GET "https://api.hollaex.com/v2/trades?symbol=xht-usdt"
+curl -X GET "https://api.patriotexchange.net/v2/trades?symbol=xht-usdt"
 ```
 
 > Response
@@ -520,7 +428,7 @@ This endpoint retrieves the last 30 trades.
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/trades`
+`GET https://api.patriotexchange.net/v2/trades`
 
 ### PARAMETERS
 
@@ -533,7 +441,7 @@ symbol | string | Optional | The currency pair symbol (xht-usdt, etc.)
 > Request
 
 ```shell
-curl -X GET "https://api.hollaex.com/v2/chart?symbol=xht-usdt&resolution=1D&from=1616987453&to=1619579513"
+curl -X GET "https://api.patriotexchange.net/v2/chart?symbol=xht-usdt&resolution=1D&from=1616987453&to=1619579513"
 ```
 
 > Response
@@ -566,7 +474,7 @@ This endpoint retrieves a trading pair's trade history HOLCV.
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/chart?symbol=${symbol}&resolution=${resolution}&from=${from}&to=${to}`
+`GET https://api.patriotexchange.net/v2/chart?symbol=${symbol}&resolution=${resolution}&from=${from}&to=${to}`
 
 ### PARAMETERS
 
@@ -582,7 +490,7 @@ to | string | Required | Ending UNIX timestamp
 > Request
 
 ```shell
-curl -X GET "https://api.hollaex.com/v2/charts?resolution=1D&from=1551663947&to=1582768007"
+curl -X GET "https://api.patriotexchange.net/v2/charts?resolution=1D&from=1551663947&to=1582768007"
 ```
 
 > Response
@@ -628,7 +536,7 @@ This endpoint retrieves trade history HOLCV for all pairs.
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/charts?resolution=${resolution}&from=${from}&to=${to}`
+`GET https://api.patriotexchange.net/v2/charts?resolution=${resolution}&from=${from}&to=${to}`
 
 ### PARAMETERS
 
@@ -653,7 +561,7 @@ curl -X GET
   -H "api-key: $API_KEY"
   -H "api-signature: $API_SIGNATURE"
   -H "api-expires: $API_EXPIRES"
-  "https://api.hollaex.com/v2/user"
+  "https://api.patriotexchange.net/v2/user"
 ```
 
 > Response
@@ -756,7 +664,7 @@ This endpoint gets user's information, wallet address as well as his balance.
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/user`
+`GET https://api.patriotexchange.net/v2/user`
 
 ## Get Balance
 
@@ -767,7 +675,7 @@ curl -X GET
   -H "api-key: $API_KEY"
   -H "api-signature: $API_SIGNATURE"
   -H "api-expires: $API_EXPIRES"
-  "https://api.hollaex.com/v2/user/balance"
+  "https://api.patriotexchange.net/v2/user/balance"
 ```
 
 > Response
@@ -787,7 +695,7 @@ This endpoint gets a user's balance.
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/user/balance`
+`GET https://api.patriotexchange.net/v2/user/balance`
 
 
 ## Get Deposits
@@ -799,7 +707,7 @@ curl -X GET
   -H "api-key: $API_KEY"
   -H "api-signature: $API_SIGNATURE"
   -H "api-expires: $API_EXPIRES"
-  "https://api.hollaex.com/v2/user/deposits"
+  "https://api.patriotexchange.net/v2/user/deposits"
 ```
 
 > Response
@@ -835,7 +743,7 @@ This endpoint displays user's deposits
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/user/deposits`
+`GET https://api.patriotexchange.net/v2/user/deposits`
 
 ### PARAMETERS
 
@@ -866,7 +774,7 @@ curl -X GET
   -H "api-key: $API_KEY"
   -H "api-signature: $API_SIGNATURE"
   -H "api-expires: $API_EXPIRES"
-  "https://api.hollaex.com/v2/user/withdrawals"
+  "https://api.patriotexchange.net/v2/user/withdrawals"
 ```
 
 > Response
@@ -902,7 +810,7 @@ This endpoint displays user's withdrawals
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/user/withdrawals`
+`GET https://api.patriotexchange.net/v2/user/withdrawals`
 
 ### PARAMETERS
 
@@ -933,7 +841,7 @@ curl -X GET
   -H "api-key: $API_KEY"
   -H "api-signature: $API_SIGNATURE"
   -H "api-expires: $API_EXPIRES"
-  "https://api.hollaex.com/v2/user/withdrawal/fee?symbol=$symbol"
+  "https://api.patriotexchange.net/v2/user/withdrawal/fee?symbol=$symbol"
 ```
 
 > Response
@@ -948,7 +856,7 @@ This endpoint gets the withdrawal fee for a certain currency
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/user/withdrawal/fee?currency=${currency}`
+`GET https://api.patriotexchange.net/v2/user/withdrawal/fee?currency=${currency}`
 
 ### PARAMETERS
 
@@ -967,7 +875,7 @@ curl -X POST
   -H "api-expires: $API_EXPIRES"
   -H "Content-Type: application/json"
   -d '{"currency":$currency,"amount":$amount,"address":$address}'
-  "https://api.hollaex.com/v2/user/request-withdrawal"
+  "https://api.patriotexchange.net/v2/user/request-withdrawal"
 ```
 
 > Response
@@ -982,7 +890,7 @@ This endpoint creates a withdrawal request for the user
 
 ### HTTP Request
 
-`POST https://api.hollaex.com/v2/user/request-withdrawal`
+`POST https://api.patriotexchange.net/v2/user/request-withdrawal`
 
 ### PARAMETERS
 
@@ -1003,7 +911,7 @@ curl -X GET
   -H "api-key: $API_KEY"
   -H "api-signature: $API_SIGNATURE"
   -H "api-expires: $API_EXPIRES"
-  "https://api.hollaex.com/v2/user/trades"
+  "https://api.patriotexchange.net/v2/user/trades"
 ```
 
 > Response
@@ -1030,7 +938,7 @@ This endpoint displays user's trades
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/user/trades`
+`GET https://api.patriotexchange.net/v2/user/trades`
 
 ### PARAMETERS
 
@@ -1054,7 +962,7 @@ curl -X GET
   -H "api-key: $API_KEY"
   -H "api-signature: $API_SIGNATURE"
   -H "api-expires: $API_EXPIRES"
-  "https://api.hollaex.com/v2/orders"
+  "https://api.patriotexchange.net/v2/orders"
 ```
 
 > Response
@@ -1093,7 +1001,7 @@ This endpoint gets all active orders placed by the user
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/orders`
+`GET https://api.patriotexchange.net/v2/orders`
 
 ### PARAMETERS
 
@@ -1119,7 +1027,7 @@ curl -X GET
   -H "api-key: $API_KEY"
   -H "api-signature: $API_SIGNATURE"
   -H "api-expires: $API_EXPIRES"
-  "https://api.hollaex.com/v2/order?$order_id"
+  "https://api.patriotexchange.net/v2/order?$order_id"
 ```
 
 > Response
@@ -1147,7 +1055,7 @@ This endpoint gets an order by its id.
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/order?order_id=${order_id}`
+`GET https://api.patriotexchange.net/v2/order?order_id=${order_id}`
 
 ### PARAMETERS
 
@@ -1166,7 +1074,7 @@ curl -X POST
   -H "api-expires: $API_EXPIRES"
   -H "Content-Type: application/json"
   -d '{"symbol":$symbol,"side":$side,"size":$size,"type":$type,"price":$price}'
-  "https://api.hollaex.com/v2/order"
+  "https://api.patriotexchange.net/v2/order"
 ```
 
 > Response
@@ -1199,7 +1107,7 @@ This endpoint places an order for the user
 
 ### HTTP Request
 
-`POST https://api.hollaex.com/v2/order`
+`POST https://api.patriotexchange.net/v2/order`
 
 ### PARAMETERS
 
@@ -1225,7 +1133,7 @@ curl -X DELETE
   -H "api-key: $API_KEY"
   -H "api-signature: $API_SIGNATURE"
   -H "api-expires: $API_EXPIRES"
-  "https://api.hollaex.com/v2/order/all"
+  "https://api.patriotexchange.net/v2/order/all"
 ```
 
 > Response
@@ -1261,7 +1169,7 @@ This endpoint cancels all orders placed by the user.
 
 ### HTTP Request
 
-`DELETE https://api.hollaex.com/v2/order/all`
+`DELETE https://api.patriotexchange.net/v2/order/all`
 
 ### PARAMETERS
 
@@ -1278,7 +1186,7 @@ curl -X GET
   -H "api-key: $API_KEY"
   -H "api-signature: $API_SIGNATURE"
   -H "api-expires: $API_EXPIRES"
-  "https://api.hollaex.com/v2/order?order_id=$order_id"
+  "https://api.patriotexchange.net/v2/order?order_id=$order_id"
 ```
 
 > Response
@@ -1311,7 +1219,7 @@ This endpoint cancels an order by getting its id
 
 ### HTTP Request
 
-`DELETE https://api.hollaex.com/v2/order?order_id=${order_id}`
+`DELETE https://api.patriotexchange.net/v2/order?order_id=${order_id}`
 
 ### PARAMETERS
 
@@ -1321,14 +1229,14 @@ order_id | string | Required | Specific order unique Id
 
 # TradingView
 
-HollaEx fully supports the TradingView UDF API.
+Patriot Exchange fully supports the TradingView UDF API.
 
 ## Config
 
 > Request
 
 ```shell
-curl -X GET "https://api.hollaex.com/v2/udf/config"
+curl -X GET "https://api.patriotexchange.net/v2/udf/config"
 ```
 
 > Response
@@ -1349,14 +1257,14 @@ This endpoint retrieves the TradingView UDF config.
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/udf/config`
+`GET https://api.patriotexchange.net/v2/udf/config`
 
 ## History
 
 > Request
 
 ```shell
-curl -X GET "https://api.hollaex.com/v2/udf/history?symbol=xht-usdt&resolution=1D&from=1551663947&to=1582768007"
+curl -X GET "https://api.patriotexchange.net/v2/udf/history?symbol=xht-usdt&resolution=1D&from=1551663947&to=1582768007"
 ```
 
 > Response
@@ -1375,7 +1283,7 @@ This endpoint retrieves the TradigView UDF history HOLCV.
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/udf/history?symbol=${symbol}&resolution=${resolution}&from=${from}&to=${to}`
+`GET https://api.patriotexchange.net/v2/udf/history?symbol=${symbol}&resolution=${resolution}&from=${from}&to=${to}`
 
 ### PARAMETERS
 
@@ -1391,7 +1299,7 @@ to | string | Required | Ending UNIX timestamp
 > Request
 
 ```shell
-curl -X GET "https://api.hollaex.com/v2/udf/symbols?symbol=xht-usdt"
+curl -X GET "https://api.patriotexchange.net/v2/udf/symbols?symbol=xht-usdt"
 ```
 
 > Response
@@ -1400,7 +1308,7 @@ curl -X GET "https://api.hollaex.com/v2/udf/symbols?symbol=xht-usdt"
 {
     "name": "bitHolla",
     "ticker": "xht-usdt",
-    "exchange": "HollaEx",
+    "exchange": "Patriot Exchange",
     "has_intraday": true,
     "has_daily": true,
     "has_weekly_and_monthly": true,
@@ -1415,7 +1323,7 @@ This endpoint retrieves system a TradingView UDF symbol.
 
 ### HTTP Request
 
-`GET https://api.hollaex.com/v2/udf/symbols?symbol=${symbol}`
+`GET https://api.patriotexchange.net/v2/udf/symbols?symbol=${symbol}`
 
 ### PARAMETERS
 
@@ -1425,7 +1333,7 @@ symbol | string | Required | The currency pair symbol (xht-usdt, etc.)
 
 # Websocket
 
-Connection to public and private channels are available through the path `https://api.hollaex.com/stream`. HollaEx Exchanges can be connected to using any websocket libraries. For this documentation, we will use the library [`ws`]('https://github.com/websockets/ws').
+Connection to public and private channels are available through the path `https://api.patriotexchange.net/stream`. Patriot Exchange Exchanges can be connected to using any websocket libraries. For this documentation, we will use the library [`ws`]('https://github.com/websockets/ws').
 
 ## Connecting
 
@@ -1436,13 +1344,13 @@ Connection to public and private channels are available through the path `https:
 	const WebSocket = require('ws');
 
 	// Public
-	const client = new WebSocket('https://api.hollaex.com/stream');
+	const client = new WebSocket('https://api.patriotexchange.net/stream');
 
 	// Private Bearer
-	const client = new WebSocket(`https://api.hollaex.com/stream?authorization=Bearer%20${TOKEN}`);
+	const client = new WebSocket(`https://api.patriotexchange.net/stream?authorization=Bearer%20${TOKEN}`);
 
 	// Private HMAC
-	const client = new WebSocket(`https://api.hollaex.com/stream?api-key=${API-KEY}&api-signature=${API-SIGNATURE}&api-expires=${API-EXPIRES}`);
+	const client = new WebSocket(`https://api.patriotexchange.net/stream?api-key=${API-KEY}&api-signature=${API-SIGNATURE}&api-expires=${API-EXPIRES}`);
 
 	client.on('open', () => {
 		// Ping message to keep connection alive
@@ -1464,7 +1372,7 @@ Websocket connections will disconnect if a message is not sent within one minute
 
 ### PATH
 
-`https://api.hollaex.com/stream`
+`https://api.patriotexchange.net/stream`
 
 ### PARAMETERS
 

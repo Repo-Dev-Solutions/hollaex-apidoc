@@ -1,10 +1,10 @@
 # Errors
 
 <aside class="dangers">
-List of http request errors you might get from HollaEx.
+List of http request errors you might get from Patriot Exchange.
 </aside>
 
-The HollaEx API uses the following error codes:
+The Patriot Exchange API uses the following error codes:
 
 
 Error Code | Meaning

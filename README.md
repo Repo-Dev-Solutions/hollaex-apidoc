@@ -1,6 +1,6 @@
-# HollaEx API Documentation
+# Patriot Exchange API Documentation
 
-HollaEx API allows users to interact with HollaEx through RESTful API using any programming language.
+Patriot Exchange API allows users to interact with Patriot Exchange through RESTful API using any programming language.
 
 ### Prerequisites
 
